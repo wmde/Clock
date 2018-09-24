@@ -1,6 +1,6 @@
 # Clock
 
-[![Build Status](https://travis-ci.org/wmde/clock.svg?branch=master)](https://travis-ci.org/wmde/clock)
+[![Build Status](https://travis-ci.org/wmde/Clock.svg?branch=master)](https://travis-ci.org/wmde/Clock)
 
 Simple interface to get the current time without binding to global system resources. 
 
