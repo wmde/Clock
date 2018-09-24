@@ -12,26 +12,18 @@ function yourCode(Clock $clock) {
 }
 ```
 
-Provided implementations:
-
-* `SystemClock`: Uses global system resources
-* `ClockStub`: Returns value provided in the constructor. Useful in tests
-
-## TimeTeller Usage
+Clock interface:
 
 ```php
-function yourCode() {
-    $this->log(
-        $this->timeTeller->getTime(), // Returns string
-        'something happened at this time'
-    )
+interface Clock {
+	public function now(): \DateTimeImmutable;
 }
 ```
 
 Provided implementations:
 
-* `ClockTimeTeller`: Uses a `Clock` to get the time
-* `TimeTellerStub`: Returns value provided in the constructor. Useful in tests
+* `SystemClock`: Uses global system resources
+* `ClockStub`: Returns value provided in the constructor. Useful in tests
 
 ## Installation
 
