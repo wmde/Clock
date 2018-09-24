@@ -23,7 +23,7 @@ interface Clock {
 Provided implementations:
 
 * `SystemClock`: Uses global system resources
-* `ClockStub`: Returns value provided in the constructor. Useful in tests
+* `StubClock`: Returns value provided in the constructor. Useful in tests
 
 ## Installation
 
@@ -74,3 +74,9 @@ To run just the PHPUnit tests run
 To run only a subset of PHPUnit tests or otherwise pass flags to PHPUnit, run
 
     docker-compose run --rm app ./vendor/bin/phpunit --filter SomeClassNameOrFilter
+
+## Release notes
+
+### 1.0.0
+
+Initial release with `Clock`, `SystemClock` and `StubClock`
