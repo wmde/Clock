@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/wmde/clock.svg?branch=master)](https://travis-ci.org/wmde/clock)
 
-Provides simple interface to get the current time without binding to global system resources. 
+Simple interface to get the current time without binding to global system resources. 
 
 ## Usage
 

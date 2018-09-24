@@ -1,7 +1,7 @@
 {
 	"name": "wmde/clock",
 	"license": "BSD-3-Clause",
-	"description": "",
+	"description": "Simple interface to get the current time without binding to global system resources",
 	"require": {
 		"php": ">=5.6"
 	},
