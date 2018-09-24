@@ -8,7 +8,7 @@ Simple interface to get the current time without binding to global system resour
 
 ```php
 function yourCode(Clock $clock) {
-	$time = $clock->now(); // Returns DateTimeImmutable. No global access and easily testable
+    $time = $clock->now(); // Returns DateTimeImmutable. No global access and easily testable
 }
 ```
 
@@ -21,10 +21,10 @@ Provided implementations:
 
 ```php
 function yourCode() {
-	$this->log(
-		$this->timeTeller->getTime(), // Returns string
-		'something happened at this time'
-	)
+    $this->log(
+        $this->timeTeller->getTime(), // Returns string
+        'something happened at this time'
+    )
 }
 ```
 
