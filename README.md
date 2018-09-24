@@ -1,6 +1,6 @@
 # Clock
 
-[![Build Status](https://travis-ci.org/wmde/Clock.svg?branch=master)](https://travis-ci.org/wmde/Clock)
+[![Build Status](https://travis-ci.com/wmde/Clock.svg?branch=master)](https://travis-ci.com/wmde/Clock)
 
 Simple interface to get the current time without binding to global system resources. PHP 5.6+
 
