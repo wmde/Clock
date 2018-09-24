@@ -4,7 +4,7 @@ namespace WMDE\Clock;
 
 use DateTimeImmutable;
 
-class ClockStub implements Clock {
+class StubClock implements Clock {
 
 	private $stubValue;
 

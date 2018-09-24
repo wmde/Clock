@@ -4,18 +4,34 @@
 
 Simple interface to get the current time without binding to global system resources. PHP 5.6+
 
-## Usage
+## Clock Usage
 
 ```php
 function yourCode(Clock $clock) {
-	$time = $clock->now(); // No global access and easily testable
+	$time = $clock->now(); // Returns DateTimeImmutable. No global access and easily testable
 }
 ```
 
 Provided implementations:
 
 * `SystemClock`: Uses global system resources
-* `ClockStub`: Returns value provided in the constructor
+* `ClockStub`: Returns value provided in the constructor. Useful in tests
+
+## TimeTeller Usage
+
+```php
+function yourCode() {
+	$this->log(
+		$this->timeTeller->getTime(), // Returns string
+		'something happened at this time'
+	)
+}
+```
+
+Provided implementations:
+
+* `ClockTimeTeller`: Uses a `Clock` to get the time
+* `TimeTellerStub`: Returns value provided in the constructor. Useful in tests
 
 ## Installation
 
