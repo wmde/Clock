@@ -2,9 +2,20 @@
 
 [![Build Status](https://travis-ci.org/wmde/Clock.svg?branch=master)](https://travis-ci.org/wmde/Clock)
 
-Simple interface to get the current time without binding to global system resources. 
+Simple interface to get the current time without binding to global system resources. PHP 5.6+
 
 ## Usage
+
+```php
+function yourCode(Clock $clock) {
+	$time = $clock->now(); // No global access and easily testable
+}
+```
+
+Provided implementations:
+
+* `SystemClock`: Uses global system resources
+* `ClockStub`: Returns value provided in the constructor
 
 ## Installation
 
