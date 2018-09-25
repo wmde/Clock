@@ -24,6 +24,8 @@ Provided implementations:
 
 * `SystemClock`: Uses global system resources
 * `StubClock`: Returns value provided in the constructor. Useful in tests
+* `CollectionClock`: Returns specified values sequentially. Useful in tests
+* `IncrementingClock`: Returns an incremented starting time infinitely. Useful in tests
 
 ## Installation
 
@@ -79,4 +81,4 @@ To run only a subset of PHPUnit tests or otherwise pass flags to PHPUnit, run
 
 ### 1.0.0
 
-Initial release with `Clock`, `SystemClock` and `StubClock`
+Initial release with `Clock`, `SystemClock`, `StubClock`, `CollectionClock` and `IncrementingClock`
