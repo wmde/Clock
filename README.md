@@ -4,18 +4,26 @@
 
 Simple interface to get the current time without binding to global system resources. PHP 5.6+
 
-## Usage
+## Clock Usage
 
 ```php
 function yourCode(Clock $clock) {
-	$time = $clock->now(); // No global access and easily testable
+    $time = $clock->now(); // Returns DateTimeImmutable. No global access and easily testable
+}
+```
+
+Clock interface:
+
+```php
+interface Clock {
+	public function now(): \DateTimeImmutable;
 }
 ```
 
 Provided implementations:
 
 * `SystemClock`: Uses global system resources
-* `ClockStub`: Returns value provided in the constructor
+* `StubClock`: Returns value provided in the constructor. Useful in tests
 
 ## Installation
 
@@ -66,3 +74,9 @@ To run just the PHPUnit tests run
 To run only a subset of PHPUnit tests or otherwise pass flags to PHPUnit, run
 
     docker-compose run --rm app ./vendor/bin/phpunit --filter SomeClassNameOrFilter
+
+## Release notes
+
+### 1.0.0
+
+Initial release with `Clock`, `SystemClock` and `StubClock`

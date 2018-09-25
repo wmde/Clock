@@ -3,19 +3,19 @@
 namespace WMDE\Clock\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use WMDE\Clock\ClockStub;
+use WMDE\Clock\StubClock;
 
 /**
- * @covers \WMDE\Clock\ClockStub
+ * @covers \WMDE\Clock\StubClock
  */
-class ClockStubTest extends TestCase {
+class StubClockTest extends TestCase {
 
 	public function testNow() {
 		$time = new \DateTimeImmutable();
 
 		$this->assertEquals(
 			$time,
-			( new ClockStub( $time ) )->now()
+			( new StubClock( $time ) )->now()
 		);
 	}
 
