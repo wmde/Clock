@@ -1,6 +1,10 @@
 # Clock
 
 [![Build Status](https://travis-ci.com/wmde/Clock.svg?branch=master)](https://travis-ci.com/wmde/Clock)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wmde/Clock/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wmde/Clock/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/wmde/Clock/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/wmde/Clock/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/wmde/clock/version.png)](https://packagist.org/packages/wmde/clock)
+[![Download count](https://poser.pugx.org/wmde/clock/d/total.png)](https://packagist.org/packages/wmde/clock)
 
 Simple interface to get the current time without binding to global system resources. PHP 5.6+
 
