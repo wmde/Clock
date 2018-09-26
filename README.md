@@ -79,6 +79,6 @@ To run only a subset of PHPUnit tests or otherwise pass flags to PHPUnit, run
 
 ## Release notes
 
-### 1.0.0
+### 1.0.0 (2018-09-26)
 
 Initial release with `Clock`, `SystemClock`, `StubClock`, `CollectionClock` and `IncrementingClock`
