@@ -20,7 +20,7 @@ Clock interface:
 
 ```php
 interface Clock {
-	public function now(): \DateTimeImmutable;
+    public function now(): \DateTimeImmutable;
 }
 ```
 
