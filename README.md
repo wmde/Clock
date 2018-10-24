@@ -6,7 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/wmde/clock/version.png)](https://packagist.org/packages/wmde/clock)
 [![Download count](https://poser.pugx.org/wmde/clock/d/total.png)](https://packagist.org/packages/wmde/clock)
 
-Simple interface to get the current time without binding to global system resources. PHP 5.6+
+A simple interface to get the current time without binding to global system resources plus trivial implementations that facilitate testing.
 
 ## Clock Usage
 
