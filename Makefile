@@ -12,7 +12,7 @@ DEFAULT_GOAL := ci
 
 ci: test cs
 
-test: covers phpunit
+test: phpunit
 
 cs: phpcs stan
 
@@ -23,10 +23,7 @@ phpcs:
 	docker-compose run --rm app ./vendor/bin/phpcs -p -s
 
 stan:
-	docker-compose run --rm app ./vendor/bin/phpstan analyse --level=1 --no-progress src/ tests/
-
-covers:
-	docker-compose run --rm app ./vendor/bin/covers-validator
+	docker-compose run --rm app ./vendor/bin/phpstan analyse --level=5 --no-progress src/ tests/
 
 composer:
 	docker run --rm --interactive --tty --volume $(shell pwd):/app -w /app\
