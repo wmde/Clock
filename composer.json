@@ -3,12 +3,20 @@
 	"license": "BSD-3-Clause",
 	"description": "Simple interface to get the current time without binding to global system resources. Includes test doubles!",
 	"require": {
-		"php": ">=5.6"
+		"php": ">=7.4"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~9.1",
+		"wmde/fundraising-phpcs": "~2.0",
 		"phpstan/phpstan": "~0.12."
 	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/wmde/fundraising-phpcs",
+			"no-api": true
+		}
+	],
 	"autoload": {
 		"psr-4": {
 			"WMDE\\Clock\\": "src/"
@@ -21,7 +29,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "1.0.x-dev"
+			"dev-master": "2.0.x-dev"
 		}
 	}
 }

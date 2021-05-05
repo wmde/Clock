@@ -25,6 +25,10 @@ phpcs:
 stan:
 	docker-compose run --rm app ./vendor/bin/phpstan analyse --level=5 --no-progress src/ tests/
 
+fix-cs:
+	docker-compose run --rm app ./vendor/bin/phpcbf -p -s
+
+
 composer:
 	docker run --rm --interactive --tty --volume $(shell pwd):/app -w /app\
 	 --volume ~/.composer:/composer --user $(shell id -u):$(shell id -g) composer composer --no-scripts $(filter-out $@,$(MAKECMDGOALS))

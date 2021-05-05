@@ -27,7 +27,7 @@ class CollectionClockTest extends TestCase {
 	}
 
 	public function testUsesCollectionsLazily() {
-		$infiniteTimes = function() {
+		$infiniteTimes = function () {
 			$date = new \DateTimeImmutable( '2018-01-01' );
 
 			while ( true ) {

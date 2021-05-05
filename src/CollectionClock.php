@@ -19,8 +19,8 @@ class CollectionClock implements Clock {
 	/**
 	 * @param iterable|DateTimeImmutable[] $times
 	 */
-	public function __construct( /* iterable */ $times ) {
-		$generator = function() use ( $times ) {
+	public function __construct( $times ) {
+		$generator = function () use ( $times ) {
 			yield from $times;
 		};
 
