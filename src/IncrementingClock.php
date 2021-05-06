@@ -18,7 +18,7 @@ class IncrementingClock implements Clock {
 	 * @param \DateInterval $interval Example: new \DateInterval( 'P1Y' )
 	 */
 	public function __construct( DateTimeImmutable $startingTime, \DateInterval $interval ) {
-		$infiniteTimes = function() use ( $startingTime, $interval ) {
+		$infiniteTimes = function () use ( $startingTime, $interval ) {
 			$date = $startingTime;
 
 			while ( true ) {
