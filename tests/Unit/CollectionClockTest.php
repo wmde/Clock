@@ -4,14 +4,15 @@ namespace WMDE\Clock\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use WMDE\Clock\CollectionClock;
-use WMDE\Clock\StubClock;
 
 /**
  * @covers \WMDE\Clock\CollectionClock
  */
 class CollectionClockTest extends TestCase {
 
-	public function testGoesThroughArrayValues() {
+	private bool $running;
+
+	public function testGoesThroughArrayValues(): void {
 		$clock = new CollectionClock(
 			[
 				new \DateTimeImmutable( '2017-01-01' ),
@@ -26,11 +27,12 @@ class CollectionClockTest extends TestCase {
 		$clock->now();
 	}
 
-	public function testUsesCollectionsLazily() {
+	public function testUsesCollectionsLazily(): void {
+		$this->running = true;
 		$infiniteTimes = function () {
 			$date = new \DateTimeImmutable( '2018-01-01' );
 
-			while ( true ) {
+			while ( $this->running ) {
 				yield $date;
 				$date = $date->add( new \DateInterval( 'P1D' ) );
 			}
@@ -41,6 +43,8 @@ class CollectionClockTest extends TestCase {
 		$this->assertEquals( new \DateTimeImmutable( '2018-01-01' ), $clock->now() );
 		$this->assertEquals( new \DateTimeImmutable( '2018-01-02' ), $clock->now() );
 		$this->assertEquals( new \DateTimeImmutable( '2018-01-03' ), $clock->now() );
+
+		$this->running = false;
 	}
 
 }

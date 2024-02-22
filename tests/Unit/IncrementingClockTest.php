@@ -10,7 +10,7 @@ use WMDE\Clock\IncrementingClock;
  */
 class IncrementingClockTest extends TestCase {
 
-	public function testIncrementByOneDay() {
+	public function testIncrementByOneDay(): void {
 		$clock = new IncrementingClock(
 			new \DateTimeImmutable( '2018-01-01' ),
 			new \DateInterval( 'P1D' )
@@ -21,7 +21,7 @@ class IncrementingClockTest extends TestCase {
 		$this->assertEquals( new \DateTimeImmutable( '2018-01-03' ), $clock->now() );
 	}
 
-	public function testIncrementByOneYear() {
+	public function testIncrementByOneYear(): void {
 		$clock = new IncrementingClock(
 			new \DateTimeImmutable( '2018-01-01' ),
 			new \DateInterval( 'P1Y' )
