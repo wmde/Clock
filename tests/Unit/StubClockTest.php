@@ -10,7 +10,7 @@ use WMDE\Clock\StubClock;
  */
 class StubClockTest extends TestCase {
 
-	public function testNow() {
+	public function testNow(): void {
 		$time = new \DateTimeImmutable();
 
 		$this->assertEquals(

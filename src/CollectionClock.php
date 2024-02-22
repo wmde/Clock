@@ -11,26 +11,20 @@ use OutOfBoundsException;
  */
 class CollectionClock implements Clock {
 
-	/**
-	 * @var \Generator
-	 */
-	private $times;
+	private \Iterator $times;
 
 	/**
-	 * @param iterable|DateTimeImmutable[] $times
+	 * @param \Iterator<int, DateTimeImmutable>|array<int, DateTimeImmutable> $times
 	 */
-	public function __construct( $times ) {
-		$generator = function () use ( $times ) {
+	public function __construct( \Iterator|array $times ) {
+		$generator = static function () use ( $times ) {
 			yield from $times;
 		};
 
 		$this->times = $generator();
 	}
 
-	/**
-	 * @return DateTimeImmutable
-	 */
-	public function now() {
+	public function now(): DateTimeImmutable {
 		$time = $this->times->current();
 
 		if ( !( $time instanceof DateTimeImmutable ) ) {

@@ -6,7 +6,7 @@ use DateTimeImmutable;
 
 class StubClock implements Clock {
 
-	private $stubValue;
+	private DateTimeImmutable $stubValue;
 
 	public function __construct( DateTimeImmutable $stubValue ) {
 		$this->stubValue = $stubValue;
@@ -15,7 +15,7 @@ class StubClock implements Clock {
 	/**
 	 * @return \DateTimeImmutable
 	 */
-	public function now() {
+	public function now(): DateTimeImmutable {
 		return $this->stubValue;
 	}
 

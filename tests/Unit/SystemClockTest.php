@@ -10,7 +10,7 @@ use WMDE\Clock\SystemClock;
  */
 class SystemClockTest extends TestCase {
 
-	public function testNow() {
+	public function testNow(): void {
 		$this->assertGreaterThan( 1537753047, ( new SystemClock() )->now()->getTimestamp() );
 	}
 

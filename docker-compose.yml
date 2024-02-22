@@ -2,7 +2,7 @@ version: '2'
 
 services:
   app:
-    image: php:8.0-alpine
+    image: php:8.2-alpine
     volumes:
       - ./:/usr/src/app
     working_dir: /usr/src/app

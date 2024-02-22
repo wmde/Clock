@@ -23,7 +23,7 @@ phpcs:
 	docker-compose run --rm app ./vendor/bin/phpcs -p -s
 
 stan:
-	docker-compose run --rm app ./vendor/bin/phpstan analyse --level=5 --no-progress src/ tests/
+	docker-compose run --rm app ./vendor/bin/phpstan analyse --level=9 --no-progress src/ tests/
 
 fix-cs:
 	docker-compose run --rm app ./vendor/bin/phpcbf -p -s

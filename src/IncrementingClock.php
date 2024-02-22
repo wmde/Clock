@@ -3,7 +3,6 @@
 namespace WMDE\Clock;
 
 use DateTimeImmutable;
-use OutOfBoundsException;
 
 /**
  * Returns the provided time on the first call to now().
@@ -11,17 +10,19 @@ use OutOfBoundsException;
  */
 class IncrementingClock implements Clock {
 
-	private $clock;
+	private Clock $clock;
+	private bool $isRunning;
 
 	/**
 	 * @param DateTimeImmutable $startingTime Example: new \DateTimeImmutable( '2018-01-01' )
 	 * @param \DateInterval $interval Example: new \DateInterval( 'P1Y' )
 	 */
 	public function __construct( DateTimeImmutable $startingTime, \DateInterval $interval ) {
-		$infiniteTimes = function () use ( $startingTime, $interval ) {
+		$this->isRunning = true;
+		$infiniteTimes = function () use ( $startingTime, $interval ): \Iterator {
 			$date = $startingTime;
 
-			while ( true ) {
+			while ( $this->isRunning ) {
 				yield $date;
 				$date = $date->add( $interval );
 			}
@@ -30,11 +31,12 @@ class IncrementingClock implements Clock {
 		$this->clock = new CollectionClock( $infiniteTimes() );
 	}
 
-	/**
-	 * @return DateTimeImmutable
-	 */
-	public function now() {
+	public function now(): DateTimeImmutable {
 		return $this->clock->now();
+	}
+
+	public function __destruct() {
+		$this->isRunning = false;
 	}
 
 }
