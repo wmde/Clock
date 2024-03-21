@@ -2,12 +2,11 @@
 
 namespace WMDE\Clock\Tests\Unit;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use WMDE\Clock\CollectionClock;
 
-/**
- * @covers \WMDE\Clock\CollectionClock
- */
+#[CoversClass( CollectionClock::class )]
 class CollectionClockTest extends TestCase {
 
 	private bool $running;
