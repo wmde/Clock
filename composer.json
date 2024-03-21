@@ -3,10 +3,14 @@
 	"license": "BSD-3-Clause",
 	"description": "Simple interface to get the current time without binding to global system resources. Includes test doubles!",
 	"require": {
-		"php": ">=8.1"
+		"php": ">=8.2"
 	},
 	"require-dev": {
+<<<<<<< HEAD
 		"phpunit/phpunit": "~10.5",
+=======
+		"phpunit/phpunit": "~11.0",
+>>>>>>> 2471702 (Update to PHPUnit 11)
 		"wmde/fundraising-phpcs": "~10.1",
 		"phpstan/phpstan": "~1.2"
 	},
