@@ -2,12 +2,11 @@
 
 namespace WMDE\Clock\Tests\Unit;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use WMDE\Clock\IncrementingClock;
 
-/**
- * @covers \WMDE\Clock\IncrementingClock
- */
+#[CoversClass( IncrementingClock::class )]
 class IncrementingClockTest extends TestCase {
 
 	public function testIncrementByOneDay(): void {
