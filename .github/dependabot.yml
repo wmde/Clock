@@ -6,6 +6,10 @@ updates:
   - package-ecosystem: "composer" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: "monthly"
     reviewers:
       - "wmde/funtech-core"
+    groups:
+      patch-updates:
+        update-types:
+          - patch
