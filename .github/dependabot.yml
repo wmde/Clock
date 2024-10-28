@@ -9,6 +9,8 @@ updates:
       interval: "monthly"
     reviewers:
       - "wmde/funtech-core"
+    # Disabling automated updates until the end of the campaign 2024-12-31
+    open-pull-requests-limit: 0
     groups:
       patch-updates:
         update-types:
