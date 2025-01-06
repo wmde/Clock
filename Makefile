@@ -17,16 +17,16 @@ test: phpunit
 cs: phpcs stan
 
 phpunit:
-	docker-compose run --rm app ./vendor/bin/phpunit
+	docker compose run --rm app ./vendor/bin/phpunit
 
 phpcs:
-	docker-compose run --rm app ./vendor/bin/phpcs -p -s
+	docker compose run --rm app ./vendor/bin/phpcs -p -s
 
 stan:
-	docker-compose run --rm app ./vendor/bin/phpstan analyse --level=9 --no-progress src/ tests/
+	docker compose run --rm app ./vendor/bin/phpstan analyse --level=9 --no-progress src/ tests/
 
 fix-cs:
-	docker-compose run --rm app ./vendor/bin/phpcbf -p -s
+	docker compose run --rm app ./vendor/bin/phpcbf -p -s
 
 
 composer:

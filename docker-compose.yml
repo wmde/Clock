@@ -1,5 +1,3 @@
-version: '2'
-
 services:
   app:
     image: php:8.2-alpine
