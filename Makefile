@@ -1,14 +1,16 @@
-# If the first argument is "composer"...
-ifeq (composer,$(firstword $(MAKECMDGOALS)))
-  # use the rest as arguments for "composer"
-  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  # ...and turn them into do-nothing targets
-  $(eval $(RUN_ARGS):;@:)
-endif
 
-.PHONY: ci test phpunit cs stan covers composer
+DEFAULT_GOAL    := ci
+current_user    := $(shell id -u)
+current_group   := $(shell id -g)
+BUILD_DIR       := $(PWD)
+DOCKER_FLAGS    := --interactive --tty
+DOCKER_IMAGE    := registry.gitlab.com/fun-tech/fundraising-frontend-docker:latest
 
-DEFAULT_GOAL := ci
+install-php:
+	docker run --rm $(DOCKER_FLAGS) --volume $(BUILD_DIR):/app -w /app --volume ~/.composer:/composer --user $(current_user):$(current_group) $(DOCKER_IMAGE) composer install $(COMPOSER_FLAGS)
+
+update-php:
+	docker run --rm $(DOCKER_FLAGS) --volume $(BUILD_DIR):/app -w /app --volume ~/.composer:/composer --user $(current_user):$(current_group) $(DOCKER_IMAGE) composer update $(COMPOSER_FLAGS)
 
 ci: test cs
 
@@ -29,6 +31,5 @@ fix-cs:
 	docker compose run --rm app ./vendor/bin/phpcbf -p -s
 
 
-composer:
-	docker run --rm --interactive --tty --volume $(shell pwd):/app -w /app\
-	 --volume ~/.composer:/composer --user $(shell id -u):$(shell id -g) composer composer --no-scripts $(filter-out $@,$(MAKECMDGOALS))
+.PHONY: ci test phpunit cs stan composer fix-cs
+
