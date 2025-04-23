@@ -1,18 +1,12 @@
 # Clock
 
-[![Build Status](https://travis-ci.com/wmde/Clock.svg?branch=master)](https://travis-ci.com/wmde/Clock)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wmde/Clock/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wmde/Clock/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/wmde/Clock/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/wmde/Clock/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/wmde/clock/version.png)](https://packagist.org/packages/wmde/clock)
-[![Download count](https://poser.pugx.org/wmde/clock/d/total.png)](https://packagist.org/packages/wmde/clock)
-
-A simple interface to get the current time without binding to global system resources plus trivial implementations that facilitate testing.
+A simple interface to get the current time without binding to global system resources, plus configurable implementations that you can use in your unit tests.
 
 ## Clock Usage
 
 ```php
 function yourCode(Clock $clock) {
-    $time = $clock->now(); // Returns DateTimeImmutable. No global access and easily testable
+    $time = $clock->now(); // Returns DateTimeImmutable. More testable than initializing a new instance
 }
 ```
 
@@ -33,7 +27,7 @@ Provided implementations:
 
 ## Installation
 
-To use the Clock library in your project, simply add a dependency on wmde/clock
+To use the Clock library in your project, add a dependency on wmde/clock
 to your project's `composer.json` file. Here is a minimal example of a `composer.json`
 file that just defines a dependency on Clock 1.x:
 
@@ -47,23 +41,17 @@ file that just defines a dependency on Clock 1.x:
 
 ## Development
 
-For development you need to have Docker and Docker-compose installed. Local PHP and Composer are not needed.
+For development you need to have Docker and the `docker compose` plugin installed. Local PHP and Composer are not needed.
 
-    sudo apt-get install docker docker-compose
+### Installing the development dependencies
 
-### Running Composer
+To pull in the project dependencies (PHPUnit, PHPStan, etc.) via Composer, run:
 
-To pull in the project dependencies via Composer, run:
+    make install-php
 
-    make composer install
+To update the dependencies, run
 
-You can run other Composer commands via `make run`, but at present this does not support argument flags.
-If you need to execute such a command, you can do so in this format:
-
-    docker run --rm --interactive --tty --volume $PWD:/app -w /app\
-     --volume ~/.composer:/composer --user $(id -u):$(id -g) composer composer install --no-scripts
-
-Where `composer install --no-scripts` is the command being run.
+    make update-php
 
 ### Running the CI checks
 
@@ -73,7 +61,7 @@ To run all CI checks, which includes PHPUnit tests, PHPCS style checks and cover
     
 ### Running the tests
 
-To run just the PHPUnit tests run
+To run only the PHPUnit tests run
 
     make test
 
@@ -82,6 +70,11 @@ To run only a subset of PHPUnit tests or otherwise pass flags to PHPUnit, run
     docker-compose run --rm app ./vendor/bin/phpunit --filter SomeClassNameOrFilter
 
 ## Release notes
+
+### 1.1.0 (2025-04-22)
+
+Updated dev dependencies and increased PHP version requirements (to exert
+some pressure to update PHP).
 
 ### 1.0.0 (2018-09-26)
 
