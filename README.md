@@ -71,7 +71,7 @@ To run only a subset of PHPUnit tests or otherwise pass flags to PHPUnit, run
 
 ## Release notes
 
-### 1.1.0 (2025-04-22)
+### 2.0.0 (2025-04-22)
 
 Updated dev dependencies and increased PHP version requirements (to exert
 some pressure to update PHP).
