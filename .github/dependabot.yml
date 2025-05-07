@@ -7,8 +7,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
-    reviewers:
-      - "wmde/funtech-core"
     groups:
       patch-updates:
         update-types:
