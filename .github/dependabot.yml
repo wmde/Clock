@@ -7,6 +7,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
+    # Turn off dependabot for fundraising campaign 2026
+    open-pull-requests-limit: 0
     groups:
       minor-version-updates:
         update-types:
